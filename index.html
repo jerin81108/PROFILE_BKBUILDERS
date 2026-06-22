@@ -407,8 +407,10 @@
                         <h3>Consult Our Team</h3>
                         <p>Fill out the form below, and our senior engineer will contact you within 24 hours.</p>
 
-                        <form id="contact-form" name="contact" method="POST" data-netlify="true" novalidate>
+                        <form id="contact-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" netlify-honeypot="bot-field" novalidate>
                             <input type="hidden" name="form-name" value="contact">
+                            <input type="hidden" name="recipient" value="shanthiniprinttech@gmail.com">
+                            <input type="hidden" name="bot-field">
                             <div class="form-group-row">
                                 <div class="form-group">
                                     <label for="form-name">Full Name *</label>
