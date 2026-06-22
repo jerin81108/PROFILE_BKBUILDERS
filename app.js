@@ -168,7 +168,32 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     window.addEventListener('scroll', highlightNavLink);
 
-    // 7. Interactive Contact Form Handler & Client-side Validation
+    // 7. Portal button and contact card redirect handling
+    const portalButton = document.getElementById('portal-button');
+    const portalLoader = document.getElementById('portal-loader');
+
+    if (portalButton && portalLoader) {
+        portalButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            portalLoader.classList.add('active');
+
+            window.setTimeout(() => {
+                window.location.href = 'https://civix-1-dbpi.onrender.com/';
+            }, 1400);
+        });
+    }
+
+    const contactLinks = document.querySelectorAll('.contact-card-link');
+    contactLinks.forEach(card => {
+        card.addEventListener('click', () => {
+            const href = card.dataset.href;
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+
+    // 8. Interactive Contact Form Handler & Client-side Validation
     const contactForm = document.getElementById('contact-form');
     const toast = document.getElementById('success-toast');
 

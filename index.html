@@ -43,10 +43,13 @@
                 </ul>
             </nav>
 
-            <div class="menu-toggle" id="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="menu-actions">
+                <a href="#" id="portal-button" class="btn-portal">Portal</a>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
@@ -376,22 +379,24 @@
                             </div>
 
                             <!-- Phone Numbers -->
-                            <div class="contact-card">
+                            <div class="contact-card contact-card-link" data-href="tel:+919865440629">
                                 <div class="contact-card-icon"><i class="fa-solid fa-phone-volume"></i></div>
                                 <div class="contact-card-details">
                                     <h4>Call Us Directly</h4>
                                     <p>Contact 1: <a href="tel:+919865440629">+91 98654 40629</a></p>
                                     <p>Contact 2: <a href="tel:+919385347629">+91 93853 47629</a></p>
+                                    <span class="contact-card-action">Tap to call</span>
                                 </div>
                             </div>
 
                             <!-- Email -->
-                            <div class="contact-card">
+                            <div class="contact-card contact-card-link" data-href="mailto:shanthiniprinttech@gmail.com">
                                 <div class="contact-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
                                 <div class="contact-card-details">
                                     <h4>Send Us an Email</h4>
                                     <p><a href="mailto:shanthiniprinttech@gmail.com">shanthiniprinttech@gmail.com</a>
                                     </p>
+                                    <span class="contact-card-action">Tap to email</span>
                                 </div>
                             </div>
                         </div>
@@ -534,6 +539,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Portal Loading Overlay -->
+    <div class="portal-loader" id="portal-loader" aria-hidden="true">
+        <div class="portal-loader-inner">
+            <div class="spinner-ring" aria-hidden="true"></div>
+            <div class="loader-text">
+                <strong>Opening Portal</strong>
+                <span>Preparing your secure link. Please wait...</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Toast Notification Container -->
     <div class="toast-container" id="toast-container">
