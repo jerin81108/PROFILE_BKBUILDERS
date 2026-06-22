@@ -254,13 +254,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // If valid, submit to Netlify and show success toast
+            // If valid, submit to Web3Forms and show success toast
             if (isValid) {
                 const formData = new FormData(contactForm);
-                fetch("/", {
+                fetch("https://api.web3forms.com/submit", {
                     method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
+                    body: formData
                 })
                 .then(() => {
                     // Show success toast animation
