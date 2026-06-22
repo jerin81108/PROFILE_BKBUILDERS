@@ -347,6 +347,42 @@
                         <button class="nav-dot" data-slide="2" aria-label="Slide 3"></button>
                     </div>
                 </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button id="btn-write-review" class="btn-secondary"><i class="fa-solid fa-pen-to-square" style="margin-right: 8px;"></i> Write a Review</button>
+                </div>
+
+                <div id="review-form-panel" style="display: none; max-width: 600px; margin: 30px auto 0; background: var(--clr-bg-surface); padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 15px; text-align: center;">Share Your Experience</h3>
+                    <form id="site-review-form">
+                        <div class="form-group">
+                            <label style="display: block; text-align: center; margin-bottom: 10px;">Rating *</label>
+                            <div id="rating-stars-input" style="font-size: 1.5rem; cursor: pointer; display: flex; gap: 5px; justify-content: center; margin-bottom: 10px;">
+                                <i class="fa-regular fa-star star-btn" data-value="1"></i>
+                                <i class="fa-regular fa-star star-btn" data-value="2"></i>
+                                <i class="fa-regular fa-star star-btn" data-value="3"></i>
+                                <i class="fa-regular fa-star star-btn" data-value="4"></i>
+                                <i class="fa-regular fa-star star-btn" data-value="5"></i>
+                            </div>
+                            <input type="hidden" id="review-rating-value" value="5">
+                        </div>
+                        <div class="form-group-row">
+                            <div class="form-group">
+                                <label for="review-name">Name *</label>
+                                <input type="text" id="review-name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="review-role">Role/Project *</label>
+                                <input type="text" id="review-role" class="form-input" placeholder="e.g. Villa Owner" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="review-desc">Review *</label>
+                            <textarea id="review-desc" class="form-input" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">Submit Review</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -409,7 +445,7 @@
 
                         <form id="contact-form" name="contact" method="POST" novalidate>
                             <!-- Replace YOUR_ACCESS_KEY_HERE with your Web3Forms access key -->
-                            <input type="hidden" name="access_key" value="shanthiniprinttech@gmail.com">
+                            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
                             <div class="form-group-row">
                                 <div class="form-group">
                                     <label for="form-name">Full Name *</label>
@@ -557,9 +593,29 @@
         <div class="toast toast-success" id="success-toast">
             <i class="fa-solid fa-circle-check" style="color: var(--clr-success); font-size: 1.25rem;"></i>
             <div>
-                <strong style="display: block;">Message Sent!</strong>
+                <strong style="display: block;">Success!</strong>
                 <span style="font-size: 0.85rem; color: var(--clr-text-muted);">Thank you. Our engineer will call you
                     soon.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Google Review Modal -->
+    <div id="google-review-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+        <div style="background: white; padding: 30px; border-radius: 12px; max-width: 500px; width: 100%; text-align: center; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+            <button onclick="window.closeGoogleModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #666;"><i class="fa-solid fa-xmark"></i></button>
+            <i class="fa-brands fa-google" style="font-size: 3rem; color: #4285F4; margin-bottom: 15px;"></i>
+            <h3 style="margin-bottom: 10px; color: #333;">Thank you for your <span id="modal-rating-val"></span>-star review!</h3>
+            <p style="color: #666; margin-bottom: 20px; font-size: 0.95rem;">Would you mind taking a second to paste your feedback on our Google Business profile? It helps us immensely!</p>
+            
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: left; position: relative; border: 1px solid #e2e8f0; padding-bottom: 40px;">
+                <p id="modal-review-text" style="font-size: 0.95rem; color: #444; font-style: italic; margin-bottom: 0;"></p>
+                <button onclick="window.copyReviewText()" style="position: absolute; bottom: 10px; right: 10px; background: #e2e8f0; border: none; padding: 5px 10px; border-radius: 4px; font-size: 0.8rem; cursor: pointer; color: #333;"><i class="fa-regular fa-copy"></i> Copy Text</button>
+            </div>
+            
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="window.closeGoogleModal()" class="btn-secondary" style="padding: 10px 20px; min-width: 130px;">No Thanks</button>
+                <a href="#" id="btn-redirect-google" target="_blank" class="btn-primary" style="padding: 10px 20px; background: #4285F4; border-color: #4285F4; color: white; text-decoration: none; min-width: 180px;" onclick="window.closeGoogleModal()">Post to Google Maps</a>
             </div>
         </div>
     </div>
