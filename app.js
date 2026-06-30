@@ -181,6 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'https://civix-1-dbpi.onrender.com/';
             }, 1400);
         });
+
+        // Hide portal loader if returning to the page (e.g. via browser back button)
+        window.addEventListener('pageshow', (event) => {
+            portalLoader.classList.remove('active');
+        });
     }
 
     const contactLinks = document.querySelectorAll('.contact-card-link');
